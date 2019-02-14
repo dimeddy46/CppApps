@@ -1,3 +1,6 @@
 # cppApps
-Download only one folder example:<br><br>
-mkdir test1 & cd test1 & git init &<br> git remote add origin https://github.com/dimeddy46/cppApps.git &<br> git fetch & git checkout HEAD [folderName] 
+To download one folder(project) with GIT:<br>
+mkdir test1 & cd test1 & git init & git remote add origin https://github.com/dimeddy46/cppApps.git & git config core.sparseCheckout true & echo <b>[changeThisWithFolderName]</b>/* > .git/info/sparse-checkout & git fetch & git checkout master
+<br><br>
+And maybe other projects:<br>
+echo <b>[AnotherFolderName]</b>/* >> .git/info/sparse-checkout & git checkout master
