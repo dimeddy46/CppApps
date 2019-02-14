@@ -1,3 +1,4 @@
 # cppApps
-Download one folder with git:<br><br>
-mkdir test1 & cd test1 & git init & git remote add origin https://github.com/dimeddy46/cppApps.git & git fetch origin master & git checkout HEAD [folderName] 
+To download one folder(project) with git:<br><br>
+set folder=[setThisfolderName]<br>
+mkdir %folder% & cd %folder% & git init & git remote add origin https://github.com/dimeddy46/cppApps.git & git config core.sparseCheckout true & echo %folder%/* > .git/info/sparse-checkout & <br> git fetch origin & git checkout origin/master
