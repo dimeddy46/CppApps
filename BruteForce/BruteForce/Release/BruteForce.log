@@ -1,19 +1,8 @@
-﻿  BruteForce.cpp
-c:\users\eddy\source\repos\bruteforce\bruteforce\bruteforce.cpp(34): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
-          with
-          [
-              _Rep=__int64
-          ]
-c:\users\eddy\source\repos\bruteforce\bruteforce\bruteforce.cpp(48): warning C4267: 'initializing': conversion from 'size_t' to 'char', possible loss of data
-c:\users\eddy\source\repos\bruteforce\bruteforce\bruteforce.cpp(53): warning C4018: '<': signed/unsigned mismatch
-c:\users\eddy\source\repos\bruteforce\bruteforce\bruteforce.cpp(77): warning C4244: '=': conversion from '_Rep' to 'unsigned int', possible loss of data
-          with
-          [
-              _Rep=__int64
-          ]
+﻿  pch.cpp
+  BruteForce.cpp
   Generating code
-  97 of 231 functions (42.0%) were compiled, the rest were copied from previous compilation.
-    64 functions were new in current compilation
-    18 functions had inline decision re-evaluated but remain unchanged
+  646 of 1001 functions (64.5%) were compiled, the rest were copied from previous compilation.
   Finished generating code
+    0 functions were new in current compilation
+    44 functions had inline decision re-evaluated but remain unchanged
   BruteForce.vcxproj -> C:\Users\Eddy\source\repos\BruteForce\Release\BruteForce.exe

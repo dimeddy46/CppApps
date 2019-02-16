@@ -3,83 +3,81 @@
 using namespace std;
 using namespace std::chrono;
 
+mutex mu; 
 thread thr[16];
 time_point<system_clock> refz;
-const string nextS[2] = { "    ", "~~~~" }, cautat = "test1";
-char pas = 0, lit = 32, gasit = 0;
-unsigned long long int comp = 0;
+const string cautat = "findme1";
+const string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
+//const string alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-void chain(string &model, char &crt) {
-	for (char i = crt - 1; i >= 0; i--)
+char n = (char)alphabet.length() - 1;
+bool gasit = false;
+//unsigned long long int comp = 0;
+// ---------------start letter, number of letters, array used for generating permutations -------
+void BruteForce(char startJump, char letCount, int x[32])
+{
+	char i, j;
+	unsigned int timp;
+
+	for (i = 0; i <= n && !gasit ; i++)
 	{
-		model[i]++;
-		if (model[i] == 127)
+		x[startJump] = i;	
+		if (startJump == letCount)	// we got a permutation
 		{
-			model[i] = ' ';
-			if (i == 0)
+			string model;
+			for (j = 1; j <= letCount; j++)	// create a string with it
+				model += alphabet[x[j]];
+
+			if (x[0] != x[letCount - 4])		// output settings(when the 5th letter from right to left changes,
+			{								// it outputs current stats). x[0] = last 5th letter
+				x[0] = x[letCount - 4];
+				mu.lock();
+				timp = (unsigned int)duration_cast<seconds>(system_clock::now() - refz).count();
+				cout << model << " TIME:" << timp << "s " << " THR: " << this_thread::get_id() << endl;
+				mu.unlock();
+			}
+
+			if (model == cautat)	// if starting string matches permutation
 			{
-				model += ' ';
-				crt++;
+				mu.lock();
+				timp = (unsigned int)duration_cast<seconds>(system_clock::now() - refz).count();
+				cout << "--------------- A FOST GASIT SIRUL " << model << " in " << timp << "s ---------------------" << endl;
+				gasit = true;
+				mu.unlock();
 			}
 		}
-		else break;
+		else BruteForce(startJump + 1, letCount, x);
 	}
 }
 
-char incrSiVerifica(string model, char crt) {
-	while (model[crt] != 127)
-	{
-		if (model == cautat)
-		{
-			int timp = duration_cast<seconds>(system_clock::now() - refz).count();
-			cout << endl << "A FOST GASIT SIRUL ( " << model.c_str() << " ) din "
-				<< comp << " incercari, " << timp << "s, ~"
-				<< comp / timp << " comparari / sec." << endl << endl;
-			gasit++;
-			break;
-		}
-		model[crt]++;
-		comp++;
-	}
-	return 0;
-}
-
-void Brute(string start, string end) {
-	char crt = start.length() - 1, fin = end.length();
-
-	cout << "------------------AM INCEPUT THREAD " << this_thread::get_id() << " cu: |" 
-		<< start.c_str() << "| pana la |" << end.c_str() << "|-----------------------" << endl;
-
-	while ((start < end || start.length() < fin) && gasit == 0)
-	{
-		if (incrSiVerifica(start, crt)) return;
-		chain(start, crt);
-	}
-	cout << "!!!!! THREAD " << this_thread::get_id() << " TERMINAT !!!!!" << endl;
-}
-
-int main()
-{
-	unsigned int timp;
-	char i, threads = thread::hardware_concurrency();
+int main() {
+	char i, threads = thread::hardware_concurrency(), let5 = 0, letCount = 4;
+	vector<future<void>> tasks;
 	refz = system_clock::now();
 
-	while (true) {
+	while (!gasit) {
+		int x[16][32] = {};
 		for (i = 0; i < threads; i++)
 		{
-			thr[i] = thread(Brute, lit + nextS[0], lit + nextS[1]);
-			this_thread::sleep_for(milliseconds(20));
-			lit++;
+			if (let5 <= n)	// threads run until alphabet is still available
+			{
+				x[i][1] = let5;	// initialize 5th letter
+				let5++;
+				tasks.push_back(async(launch::async, BruteForce, 2, letCount, x[i]));
+			}
+			else break;	// TODO: can't get to next [letCount] until all threads with current [letCount] are done
 		}
-		for (i = 0; i < threads; i++)
-			thr[i].join();
 
-		timp = duration_cast<seconds>(system_clock::now() - refz).count();
-		cout << endl << "Litera " << lit + 0 << "(" << lit << "): | Comps:" 
-			 << comp << " | Time:" << timp << "s | Avg. comps/sec:"<< comp / timp << endl << endl;
-			
+		for (auto &&task : tasks)	// wait for threads to end
+			task.get();
+		tasks.clear();	
 
-		if (gasit == 1) { system("pause"); exit(0); }
+		if (let5 > n)	// if 5th letter has completed cycle, restart and increase number of letters
+		{
+			let5 = 0;
+			letCount++;
+		}
+		cout << "--------BATCH ENDED--------" << endl;
 	}
-	return 0;
+	system("pause");
 }
