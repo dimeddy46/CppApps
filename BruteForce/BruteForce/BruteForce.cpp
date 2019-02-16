@@ -29,7 +29,7 @@ void BruteForce(char startJump, char letCount, int x[32])
 				model += alphabet[x[j]];
 
 			if (x[0] != x[letCount - 4])		// output settings(when the 5th letter from right to left changes,
-			{								// it outputs current stats). x[0] = last 5th letter
+			{					// it outputs current stats). x[0] = last 5th letter
 				x[0] = x[letCount - 4];
 				mu.lock();
 				timp = (unsigned int)duration_cast<seconds>(system_clock::now() - refz).count();
@@ -68,7 +68,7 @@ int main() {
 			else break;	// TODO: can't get to next [letCount] until all threads with current [letCount] are done
 		}
 
-		for (auto &&task : tasks)	// wait for threads to end
+		for (auto &&task : tasks)// wait for threads to end
 			task.get();
 		tasks.clear();	
 
