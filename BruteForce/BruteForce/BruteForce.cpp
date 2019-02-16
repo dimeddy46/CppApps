@@ -41,7 +41,8 @@ void BruteForce(char startJump, char letCount, int x[32])
 			{
 				mu.lock();
 				timp = (unsigned int)duration_cast<seconds>(system_clock::now() - refz).count();
-				cout << "--------------- A FOST GASIT SIRUL " << model << " in " << timp << "s ---------------------" << endl;
+				cout << "--------------- A FOST GASIT SIRUL " << model << " in " 
+				     << timp << "s ---------------------" << endl;
 				gasit = true;
 				mu.unlock();
 			}
