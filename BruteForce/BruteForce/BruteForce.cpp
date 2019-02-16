@@ -60,9 +60,9 @@ int main() {
 		int x[16][32] = {};
 		for (i = 0; i < threads; i++)
 		{
-			if (let5 <= n)	// threads run until alphabet is still available
+			if (let5 <= n)	// threads run while alphabet is still available
 			{
-				x[i][1] = let5;	// initialize 5th letter
+				x[i][1] = let5;		// initialize 5th letter
 				let5++;
 				tasks.push_back(async(launch::async, BruteForce, 2, letCount, x[i]));
 			}
