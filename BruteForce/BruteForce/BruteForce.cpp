@@ -12,7 +12,6 @@ const string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012
 
 char n = (char)alphabet.length() - 1;
 bool gasit = false;
-//unsigned long long int comp = 0;
 // ---------------start letter, number of letters, array used for generating permutations -------
 void BruteForce(char startJump, char letCount, int x[32])
 {
