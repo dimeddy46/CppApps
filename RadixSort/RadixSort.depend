@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1516197526 source:d:\c++\radixsort\main.cpp
-	<stdio.h>
-	<iostream>
-	<stdlib.h>
-	<time.h>
-	<windows.h>
-

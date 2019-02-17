@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1491498894 source:d:\c++\ec.liniare\main.cpp
-	<fstream>
-	<stdio.h>
-	<conio.h>
-	<windows.h>
-

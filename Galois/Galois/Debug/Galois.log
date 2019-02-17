@@ -1,8 +1,0 @@
-﻿  Galois.cpp
-c:\users\eddy\source\repos\galois\galois\galois.cpp(48): warning C4244: '+=': conversion from 'double' to 'uchar', possible loss of data
-c:\users\eddy\source\repos\galois\galois\galois.cpp(131): warning C4244: '=': conversion from 'ushort' to 'char', possible loss of data
-c:\users\eddy\source\repos\galois\galois\galois.cpp(151): warning C4101: 'j': unreferenced local variable
-c:\users\eddy\source\repos\galois\galois\galois.cpp(163): warning C4244: 'argument': conversion from 'ushort' to 'uchar', possible loss of data
-c:\users\eddy\source\repos\galois\galois\galois.cpp(173): warning C4244: 'argument': conversion from 'ushort' to 'uchar', possible loss of data
-c:\users\eddy\source\repos\galois\galois\galois.cpp(242): warning C4244: '=': conversion from 'short' to 'uchar', possible loss of data
-  Galois.vcxproj -> C:\Users\Eddy\source\repos\Galois\Debug\Galois.exe

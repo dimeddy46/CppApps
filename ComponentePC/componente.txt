@@ -1,9 +1,0 @@
-1 1200 i3-6100 CPU 2016 3 Intel SUA 27
-2 1700 i5-2500 CPU 2017 3 Intel SUA 82
-3 3400 gtx-780-ti GPU 2015 3 Nvidia Canada 34
-4 3800 gtx-750 GPU 2016 5 Nvidia Canada 53
-5 4100 geforce-4 GPU 2016 1 Nvidia Canada 12
-6 4600 geforce-8800 GPU 2017 5 Nvidia Canada 36
-7 6200 gtx-660-ti GPU 2017 4 Nvidia Canada 43
-8 300 carcasa-xyz RAM 2014 2 Corsair Japonia 104
-9 700 ddr3-1600 RAM 2014 3 Corsair Japonia 225
