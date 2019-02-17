@@ -35,6 +35,7 @@
 *.sln
 *.vcxproj
 *.filters
+*.user
 .vs/
 Release/
 Debug/
