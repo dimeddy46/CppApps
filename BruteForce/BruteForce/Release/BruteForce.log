@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  BruteForce.cpp
+  Generating code
+  646 of 1001 functions (64.5%) were compiled, the rest were copied from previous compilation.
+  Finished generating code
+    0 functions were new in current compilation
+    44 functions had inline decision re-evaluated but remain unchanged
+  BruteForce.vcxproj -> C:\Users\Eddy\source\repos\BruteForce\Release\BruteForce.exe
