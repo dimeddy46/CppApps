@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.13)
 project(BruteForce)
 
 set(sources BruteForce.cpp pch.cpp pch.h)
