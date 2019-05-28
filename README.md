@@ -1,4 +1,4 @@
-# cppApps
+# C++ Applications
 
 <b>To download only one folder(project) with GIT:</b><br>
 mkdir test1 & cd test1 & git init & git remote add origin https://github.com/dimeddy46/CppApps.git & git config core.sparseCheckout true & echo <b>[changeThisWithFolderName]</b>/* > .git/info/sparse-checkout & git fetch & git checkout master
